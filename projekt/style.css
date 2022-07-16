@@ -1,0 +1,44 @@
+body {
+    background-image: url("background.jpg");
+}
+
+.Div {
+    background-color: white;
+    text-align: center;
+    border: 2px solid #8a8080;
+    padding: 10px;
+    box-shadow: 10px 10px 10px rgb(138, 127, 127);
+    border-radius: 10px;
+}
+.Text {
+    font-family: 'Roboto', sans-serif; 
+}
+.Input {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #8a8080;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif; 
+}
+.Prim {
+    height: 50px;
+    width: 110px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    color:white;
+    background-color: #4285F4;
+    border-radius: 10px;
+    border: 2px solid #ffffff00;
+    
+}
+.Seco {
+    height: 50px;
+    width: 110px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    background-color: #ffffff00;
+    border-radius: 10px;
+    border: 2px solid #dadada28;
+}
