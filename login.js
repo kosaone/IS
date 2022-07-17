@@ -1,7 +1,5 @@
-const data ='{"zendro_kosa": "ZendroWOW", "martinzaoral": "test"}'
-const obj =JSON.parse(data)
-var uj = "uj";
-    
+const data = {"zendrokosa": "ZendroWow"}
+const object = JSON.parse(data)
 function Clicked() {
     const name = document.getElementById("uj").value;
     const pass = document.getElementById("ho").value;
@@ -10,14 +8,17 @@ function Clicked() {
 function Login(jmeno, heslo) {
     lowjmeno = jmeno.toLowerCase();
     console.log(lowjmeno)
-    console.log(obj[lowjmeno])
+    console.log(object[lowjmeno])
     console.log(heslo)
-    if (obj.hasOwnProperty(lowjmeno)) {
-        if (obj[lowjmeno] == heslo) {
+    if (object.hasOwnProperty(lowjmeno)) {
+        if (object[lowjmeno] == heslo) {
             alert("Přihlášeno.")
+        }
+        else{
+            alert("Neznámé heslo.")
         }
     }
     else {
-        alert("Error")
+        alert("Neznámé přihlašovací jméno.")
     }
 }
