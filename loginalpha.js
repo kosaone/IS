@@ -1,25 +1,37 @@
 const data = {"zendrokosa": "909358e635499ae21d46e19ebc352034a6e9ecd5b02b71bf0a10f0b01a1c2995"};
+async function sha256(message) {
+    // encode as UTF-8
+    const msgBuffer = new TextEncoder().encode(message);                    
 
+    // hash the message
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
 
-require.config({packages: [{name: 'crypto-js',location: './bower_components/crypto-js',main: 'index'}]});
+    // convert ArrayBuffer to Array
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
 
-require(["crypto-js/aes", "crypto-js/sha256"], function (AES, SHA256) {
-    console.log(SHA256("Message"));
-});
+    // convert bytes to hex string                  
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    return hashHex;
+}
 
 function Clicked() {
     const name = document.getElementById("uj").value;
     const pass = document.getElementById("ho").value;
     Login(name, pass)
 }
+
+
 function Login(jmeno, heslo) {
     lowjmeno = jmeno.toLowerCase();
     console.log(data[lowjmeno]);
     console.log(heslo);
     wrotedpass = data[lowjmeno];
+    hashedpromise = sha256(wrotedpass)
+
+
     if (data.hasOwnProperty(lowjmeno)) {
-        console.log("Existence uživatelské jména dokázána.");
-        if (wrotedpass == heslo) {
+        console.log("Existence uživatelského jména dokázána.");
+        if (hashedpromise == heslo) {
             console.log("Správnost hesla dokázána.");
         }
         else {
