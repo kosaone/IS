@@ -47,7 +47,16 @@ function SHA256(s) {
 function Clicked() {
     const name = document.getElementById("uj").value;
     const pass = document.getElementById("ho").value;
-    Login(name, pass)
+    var uj = document.getElementById("uj")
+    var ho = document.getElementById("ho")
+    uj.value = ""
+    ho.value = ""
+    if (Login(name, pass) == true){
+        window.location = "/dash.html"
+    }
+    else {
+        alert("Nesprávné jméno nebo heslo.")
+    }
 }
 
 
@@ -60,13 +69,13 @@ function Login(jmeno, heslo) {
 
     if (logindata.hasOwnProperty(lowjmeno)) {
         if (hashedpass == wrotedpass) {
-            alert("Přihlášeno.");
+            return true;
         }
         else {
-            alert("Error: Nesprávné heslo.");
+            return false;
         }
     }
     else {
-        alert("Error: Jméno neověřeno.");
+        return false;
     }
 }
