@@ -3,19 +3,20 @@
 <head>
 <title>Informační systém - MZProjekt</title>
 <link rel="icon" type="image/x-icon" href="logo.png">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="./assets/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+    <script type="text/javascript" src="/login.js"></script>
 <div  class="Div" style="height: 450px; width: 30%; margin: auto;">
-    <img src="mzprojekt.png" alt="MZProjekt Logo" height="65px" width="240px">
+    <img src="/assets/mzprojekt.png" alt="MZProjekt Logo" height="65px" width="240px">
     <h1 class="Text">Přihlaste se:</h1>
     <h3 class="Text">Jméno</h3>
-    <input class="Input" placeholder="e.g. Martin Zaoral" type="text"></input>
+    <input class="Input" id="uj" placeholder="e.g. Martin Zaoral" type="text"></input>
     <h3 class="Text">Heslo</h3>
-    <input class="Input" placeholder="e.g. 123456" type="password"></input> <br>
+    <input class="Input" id="ho" placeholder="e.g. 123456" type="password"></input> <br>
     <button class="Seco">Zrušit</button>
-    <button class="Prim" >Přihlásit se</button>
+    <button class="Prim" onclick="Clicked()" >Přihlásit se</button>
 
 </div>
 

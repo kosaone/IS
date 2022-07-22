@@ -1,4 +1,8 @@
-const data = {"zendrokosa": "909358e635499ae21d46e19ebc352034a6e9ecd5b02b71bf0a10f0b01a1c2995"};
+var logindata = "json"
+fetch('./login.json')
+  .then(response => response.json())
+  .then(data => logindata = data );
+
 function SHA256(s){var chrsz=8;var hexcase=0;function safe_add(x,y){var lsw=(x&0xFFFF)+(y&0xFFFF);var msw=(x>>16)+(y>>16)+(lsw>>16);return(msw<<16)|(lsw&0xFFFF);} 
 function S(X,n){return(X>>>n)|(X<<(32-n));} 
 function R(X,n){return(X>>>n);} 
@@ -33,24 +37,20 @@ function Clicked() {
 
 function Login(jmeno, heslo) {
 
-    lowjmeno = jmeno.toLowerCase();
-    console.log(data[lowjmeno]);
-    console.log(heslo);
-    wrotedpass = data[lowjmeno];
-    const hashedpass = SHA256(heslo)
-    console.log(hashedpass)
+    lowjmeno = jmeno.toLowerCase().replace(/\s/g, '');
+    wrotedpass = logindata[lowjmeno].toString();
+    const hashedpass = SHA256(heslo).toString();
 
 
-    if (data.hasOwnProperty(lowjmeno)) {
-        console.log("Existence uživatelského jména dokázána.");
-        if (hashedpass === heslo) {
-            console.log("Správnost hesla dokázána.");
+    if (logindata.hasOwnProperty(lowjmeno)) {
+        if (hashedpass == wrotedpass) {
+            alert("Přihlášeno.");
         }
         else {
-            console.log("Error: Nesprávné heslo.");
+            alert("Error: Nesprávné heslo.");
         }
     }
     else {
-        console.log("Error: Jméno neověřeno.");
+        alert("Error: Jméno neověřeno.");
     }
 }
